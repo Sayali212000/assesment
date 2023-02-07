@@ -1,0 +1,46 @@
+//// Given code is written in Javascript ////
+
+
+let string ='COVID crisis has taught us several lessons and together we will overcome this great challenge. now there is a sense of introspection in people. india will emerge stronger from this.';
+
+let alph='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+alph=alph.split('')
+
+let encrypt=[];
+string=string.split(' ')
+
+string.map(el=>{
+        
+        if(el.length>1){
+
+            // console.log(el)
+            el=el.split('');
+            el.map(al=>{
+                for(let i=0;i<alph.length;i++){
+                    if(al==alph[i]){
+                        encrypt.push(`${el.length}${i+1}`)
+                        break;
+                        }
+                    if(al=='.'){
+                        encrypt.push(`${99}`)
+                        break
+                    }
+            }
+            })
+        }
+        else{
+            for(let i=0;i<alph.length;i++){
+                if(el==alph[i]){
+                    encrypt.push(`${el.length}${i+1}`)
+                    break}
+                if(el=='.'){
+                    encrypt.push(`${99}`)
+                    break
+                }
+        }
+    }
+        
+
+    })
+
+    console.log('Encrypted code is \n'+encrypt.map(el=>el));
